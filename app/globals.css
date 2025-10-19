@@ -1,57 +1,54 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   /* --- MOI CUP 2025 Primary Palette --- */
-  /* Midnight Blue - Base colour for headers, backgrounds, and main text (used heavily in the dark theme) */
   --midnight-blue: #0B1E4A;
-  /* Bright Orange - Accent colour for buttons, highlights, and CTAs */
   --bright-orange: #F58220;
-  /* White - Used for text on dark backgrounds and section contrast */
   --white: #FFFFFF;
-  /* Steel Grey - Optional for light dividers, subtext, or form borders */
   --steel-grey: #CCCCCC;
 
-
   /* --- Light Theme Variables (Default :root) --- */
-  /* Using White/Steel Grey for backgrounds and Midnight Blue for text on top */
-  --background: var(--white); /* White for sections/contrast */
-  --foreground: var(--midnight-blue); /* Dark Blue for main text on white background */
-  
+  --background: var(--white); /* White background */
+  --foreground: var(--midnight-blue); /* Midnight Blue text */
+
   --card: var(--white);
   --card-foreground: var(--midnight-blue);
-  
+
   --popover: var(--white);
   --popover-foreground: var(--midnight-blue);
-  
+
   --primary: var(--bright-orange); /* Bright Orange for CTAs */
   --primary-foreground: var(--white); /* White text on Orange CTA */
-  
-  --secondary: var(--steel-grey); /* Steel Grey for secondary/muted backgrounds */
+
+  --secondary: var(--steel-grey); /* Steel Grey for secondary elements */
   --secondary-foreground: var(--midnight-blue);
-  
-  --muted: var(--steel-grey); /* Light dividers/subtext */
-  --muted-foreground: var(--steel-grey); 
-  
-  --accent: var(--bright-orange); /* Bright Orange for highlights */
-  --accent-foreground: var(--white); /* White text on Orange accent */
-  
-  --destructive: #FF3333; /* Default red for errors/destruction */
+
+  --muted: var(--steel-grey);
+  --muted-foreground: oklch(0.556 0 0); 
+
+  --accent: var(--bright-orange); /* Bright Orange for accents */
+  --accent-foreground: var(--white);
+
+  --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: var(--white);
-  
-  --border: var(--steel-grey); /* Steel Grey for form borders/dividers */
+
+  --border: var(--steel-grey);
   --input: var(--steel-grey);
-  --ring: var(--bright-orange);
-  
-  /* Chart colors can be kept or adjusted, but I'll use the main palette for consistency */
-  --chart-1: var(--bright-orange); 
+  --ring: var(--bright-orange); /* Orange focus ring */
+
+  /* Chart colors using brand palette */
+  --chart-1: var(--bright-orange);
   --chart-2: var(--midnight-blue);
-  --chart-3: var(--steel-grey);
-  --chart-4: #F4D03F; /* A softer accent, if needed */
-  --chart-5: #00A693; /* A teal accent, as mentioned in visual style */
-  
-  /* Sidebar uses a reversed contrast of the main palette */
-  --sidebar: var(--midnight-blue); 
-  --sidebar-foreground: var(--white);
+  --chart-3: #1E3A8A; /* Lighter blue variant */
+  --chart-4: #F97316; /* Slightly different orange */
+  --chart-5: #0EA5E9; /* Teal accent from kits */
+
+  /* Sidebar */
+  --sidebar: var(--white);
+  --sidebar-foreground: var(--midnight-blue);
   --sidebar-primary: var(--bright-orange);
   --sidebar-primary-foreground: var(--white);
   --sidebar-accent: var(--steel-grey);
@@ -60,96 +57,73 @@
   --sidebar-ring: var(--bright-orange);
 
   /* --- Typography --- */
-  --font-sans: Montserrat, Lato, "Open Sans", ui-sans-serif, sans-serif, system-ui;
+  --font-sans: "Montserrat", "Lato", "Open Sans", ui-sans-serif, sans-serif, system-ui;
   --font-serif: "Lora", Georgia, serif;
   --font-mono: "Fira Code", "Courier New", monospace;
-  
-  /* Keeping existing radius and shadow variables */
+
+  /* Radius and shadows */
   --radius: 0.5rem;
-  --shadow-x: 1px;
-  --shadow-y: 2px;
-  --shadow-blur: 5px;
-  --shadow-spread: 1px;
-  --shadow-opacity: 0.06;
-  --shadow-color: hsl(0 0% 0%);
-  --shadow-2xs: 1px 2px 5px 1px hsl(0 0% 0% / 0.03);
-  --shadow-xs: 1px 2px 5px 1px hsl(0 0% 0% / 0.03);
-  --shadow-sm: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 1px 2px 0px hsl(0 0% 0% / 0.06);
-  --shadow: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 1px 2px 0px hsl(0 0% 0% / 0.06);
-  --shadow-md: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 2px 4px 0px hsl(0 0% 0% / 0.06);
-  --shadow-lg: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 4px 6px 0px hsl(0 0% 0% / 0.06);
-  --shadow-xl: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 8px 10px 0px hsl(0 0% 0% / 0.06);
-  --shadow-2xl: 1px 2px 5px 1px hsl(0 0% 0% / 0.15);
-  --tracking-normal: 0em;
-  --spacing: 0.25rem;
+  --shadow-2xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 6px 10px -1px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 .dark {
   /* --- Dark Theme Variables (.dark) --- */
-  /* Implementing the "deep navy backgrounds and orange CTAs" contrast */
   --background: var(--midnight-blue); /* Midnight Blue background */
-  --foreground: var(--white); /* White text on Dark Blue background */
-  
-  --card: var(--midnight-blue);
+  --foreground: var(--white); /* White text */
+
+  --card: #0f2a5c; /* Slightly lighter navy for cards */
   --card-foreground: var(--white);
-  
-  --popover: var(--midnight-blue);
+
+  --popover: #0f2a5c;
   --popover-foreground: var(--white);
-  
+
   --primary: var(--bright-orange); /* Bright Orange for CTAs */
-  --primary-foreground: var(--white); /* White text on Orange CTA */
-  
-  --secondary: #2C426E; /* A slightly lighter Navy for secondary elements */
+  --primary-foreground: var(--white);
+
+  --secondary: #1e3a8a; /* Lighter navy for secondary */
   --secondary-foreground: var(--white);
-  
-  --muted: #2C426E;
-  --muted-foreground: var(--steel-grey); 
-  
+
+  --muted: #1e3a8a;
+  --muted-foreground: var(--steel-grey);
+
   --accent: var(--bright-orange);
   --accent-foreground: var(--white);
-  
-  --destructive: #FF3333;
+
+  --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: var(--white);
-  
-  --border: #2C426E; 
-  --input: #2C426E;
+
+  --border: #1e3a8a;
+  --input: #1e3a8a;
   --ring: var(--bright-orange);
-  
-  --chart-1: var(--bright-orange); 
+
+  /* Chart colors for dark mode */
+  --chart-1: var(--bright-orange);
   --chart-2: var(--white);
-  --chart-3: var(--steel-grey);
-  --chart-4: #F4D03F; 
-  --chart-5: #00A693; 
-  
-  /* Sidebar uses a slightly darker navy to differentiate */
-  --sidebar: #051025; 
+  --chart-3: #60a5fa;
+  --chart-4: #fdba74;
+  --chart-5: #0EA5E9;
+
+  /* Sidebar for dark mode */
+  --sidebar: #0f2a5c;
   --sidebar-foreground: var(--white);
   --sidebar-primary: var(--bright-orange);
   --sidebar-primary-foreground: var(--white);
-  --sidebar-accent: var(--steel-grey);
-  --sidebar-accent-foreground: var(--midnight-blue);
-  --sidebar-border: #2C426E;
+  --sidebar-accent: #1e3a8a;
+  --sidebar-accent-foreground: var(--white);
+  --sidebar-border: #1e3a8a;
   --sidebar-ring: var(--bright-orange);
 
-  /* Keeping typography, radius, and shadow the same as default */
-  --font-sans: Montserrat, Lato, "Open Sans", ui-sans-serif, sans-serif, system-ui;
+  /* Typography remains the same */
+  --font-sans: "Montserrat", "Lato", "Open Sans", ui-sans-serif, sans-serif, system-ui;
   --font-serif: "Lora", Georgia, serif;
   --font-mono: "Fira Code", "Courier New", monospace;
-  --radius: 0.5rem;
-  --shadow-x: 1px;
-  --shadow-y: 2px;
-  --shadow-blur: 5px;
-  --shadow-spread: 1px;
-  --shadow-opacity: 0.06;
-  --shadow-color: hsl(0 0% 0%);
-  --shadow-2xs: 1px 2px 5px 1px hsl(0 0% 0% / 0.03);
-  --shadow-xs: 1px 2px 5px 1px hsl(0 0% 0% / 0.03);
-  --shadow-sm: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 1px 2px 0px hsl(0 0% 0% / 0.06);
-  --shadow: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 1px 2px 0px hsl(0 0% 0% / 0.06);
-  --shadow-md: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 2px 4px 0px hsl(0 0% 0% / 0.06);
-  --shadow-lg: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 4px 6px 0px hsl(0 0% 0% / 0.06);
-  --shadow-xl: 1px 2px 5px 1px hsl(0 0% 0% / 0.06), 1px 8px 10px 0px hsl(0 0% 0% / 0.06);
-  --shadow-2xl: 1px 2px 5px 1px hsl(0 0% 0% / 0.15);
 }
 
 @theme inline {
@@ -203,4 +177,53 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  /* Custom button hover effects */
+  .btn-primary:hover {
+    background-color: var(--midnight-blue);
+    color: var(--bright-orange);
+    box-shadow: 0 0 8px rgba(245, 130, 32, 0.4);
+  }
+
+  /* Headings should use Montserrat */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800; /* Extra Bold */
+  }
+
+  /* Body text should use Lato/Open Sans */
+  p, span, div, li {
+    font-family: "Lato", "Open Sans", sans-serif;
+  }
+}
+
+@layer components {
+  /* Gradient overlays for hero banners */
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--midnight-blue) 0%, transparent 100%);
+  }
+
+  /* Football texture pattern */
+  .football-pattern {
+    background-image: radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 20px 20px;
+  }
+
+  /* Pitch lines pattern */
+  .pitch-lines {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
 }
