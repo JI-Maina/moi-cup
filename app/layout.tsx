@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Montserrat, Lato, Open_Sans } from "next/font/google";
 
 import "./globals.css";
+import { HeroHeader } from "@/components/header";
+import { SiteFooter } from "@/components/site/footer";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -35,7 +37,9 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${lato.variable} ${openSans.variable} antialiased`}
       >
+        <HeroHeader />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
