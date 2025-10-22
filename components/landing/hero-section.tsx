@@ -1,7 +1,8 @@
 import React from "react";
-import { Button } from "../ui/button";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
+import { Button } from "../ui/button";
 import { CountdownTimer } from "./count-down";
 
 const HeroSection = () => {
@@ -18,12 +19,11 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B1E4A]/95 via-[#0B1E4A]/80 to-[#0B1E4A]/60"></div>
       </div>
 
-      {/* Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+      {/* Content Container - Increased top padding to push everything down */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 pt-32 lg:pt-48">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Text Content */}
-          <div className="text-left space-y-8">
-            {/* Main Title */}
+          {/* Left Side - Text Content - Added more top padding */}
+          <div className="text-left space-y-8 mb-20">
             <div>
               <h1 className="text-6xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-none font-montserrat">
                 Moi Cup
@@ -44,21 +44,12 @@ const HeroSection = () => {
             {/* Countdown Timer */}
             <CountdownTimer />
 
-            {/* Mission Statement */}
-            {/* <div className="space-y-4">
-              <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl font-lato">
-                Empowering Youth, Showcasing Talent, Celebrating Football,
-                Promoting Fair Play, Building Character, Inspiring Dreams,
-                Shaping Future Champions.
-              </p>
-            </div> */}
-
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://moicup.aidaform.com/tournamentregistrationform"
+                href="https:moicup.aidaform.com/tournamentregistrationform"
               >
                 <Button
                   size="lg"
@@ -80,11 +71,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Side - Football Player Image */}
+          {/* Right Side - Football Player Image - Adjusted positioning */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-lg xl:max-w-2xl h-[100vh] lg:h-[150vh] -mt-10 lg:-mt-0">
-              {" "}
-              {/* Slightly larger with optional negative margin */}
+            <div className="relative w-full max-w-lg xl:max-w-2xl h-[80vh] lg:h-[110vh] mt-8 lg:mt-12">
               <Image
                 src="/hero-img.png"
                 alt="Football Player"
