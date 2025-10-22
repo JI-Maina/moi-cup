@@ -6,10 +6,7 @@ import React from "react";
 
 const AboutSection = () => {
   return (
-    <section
-      id="about"
-      className="relative py-20 bg-[--midnight-blue] overflow-hidden"
-    >
+    <section id="about" className="relative py-20 bg-muted/30 overflow-hidden">
       {/* Background Pattern (Needs definition in global.css to work) */}
       <div className="absolute inset-0 football-pattern opacity-10"></div>
 
