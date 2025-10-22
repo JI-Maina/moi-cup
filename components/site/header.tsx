@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 
 const menuItems = [
-  { name: "About", href: "/about" },
+  // { name: "About", href: "/about" },
   //   { name: "Tournament Info", href: "/tournament-info" },
-  { name: "Registration Guidelines", href: "/registration" },
+  { name: "Registration Guidelines", href: "/guidelines" },
   { name: "Partners & Sponsors", href: "/partners" },
-  { name: "News & Announcements", href: "/news" },
+  // { name: "News & Announcements", href: "/news" },
   { name: "Media & Gallery", href: "/gallery" },
 ];
 
