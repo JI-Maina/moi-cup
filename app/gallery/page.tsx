@@ -7,19 +7,6 @@ import { Button } from "@/components/ui/button";
 
 const categories = ["All", "2024"];
 
-const gallery24Images = [
-  { src: "/playerBoysImg.jpeg", alt: "Boys team celebrating goal" },
-  { src: "/playerGirlsImg.jpeg", alt: "Girls team in action" },
-  { src: "/playerBoysImg.jpeg", alt: "Boys team celebrating goal" },
-  { src: "/playerGirlsImg.jpeg", alt: "Girls team in action" },
-  { src: "/playerBoysImg.jpeg", alt: "Boys team celebrating goal" },
-  { src: "/playerGirlsImg.jpeg", alt: "Girls team in action" },
-  { src: "/playerBoysImg.jpeg", alt: "Boys team celebrating goal" },
-  { src: "/playerGirlsImg.jpeg", alt: "Girls team in action" },
-  { src: "/playerBoysImg.jpeg", alt: "Boys team celebrating goal" },
-  { src: "/playerGirlsImg.jpeg", alt: "Girls team in action" },
-];
-
 const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -106,3 +93,36 @@ const Gallery = () => {
 };
 
 export default Gallery;
+
+const gallery24Images = [
+  { src: "/yr24/img.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img30.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img2.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img29.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img3.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img28.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img4.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img27.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img5.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img26.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img6.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img25.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img7.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img24.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img8.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img23.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img9.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img22.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img10.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img21.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img11.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img20.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img12.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img19.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img13.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img18.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img14.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img17.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img15.jpeg", alt: "Moi Cup 2024" },
+  { src: "/yr24/img16.jpeg", alt: "Moi Cup 2024" },
+];
