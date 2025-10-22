@@ -1,3 +1,7 @@
+import { FC } from "react";
+import Image from "next/image";
+
+import { Badge } from "@/components/ui/badge";
 import { Trophy, Users, Award } from "lucide-react";
 import {
   Card,
@@ -6,12 +10,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import Image from "next/image";
-// import playerBoysImg from "@/assets/player-boys.jpg";
-// import playerGirlsImg from "@/assets/player-girls.jpg";
 
-const boysCategories = [
+type Category = { ageGroup: string; bornAfter: string };
+
+const boysCategories: Category[] = [
   { ageGroup: "Under 7", bornAfter: "Born on or after January 1, 2018" },
   { ageGroup: "Under 9", bornAfter: "Born on or after January 1, 2016" },
   { ageGroup: "Under 11", bornAfter: "Born on or after January 1, 2014" },
@@ -20,7 +22,7 @@ const boysCategories = [
   { ageGroup: "Under 17", bornAfter: "Born on or after January 1, 2008" },
 ];
 
-const girlsCategories = [
+const girlsCategories: Category[] = [
   { ageGroup: "Under 13", bornAfter: "Born on or after January 1, 2012" },
   { ageGroup: "Under 15", bornAfter: "Born on or after January 1, 2010" },
 ];
@@ -37,14 +39,14 @@ const TournamentSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">
-          <Badge className="mb-4 bg-primary text-primary-foreground">
+          <Badge className="mb-4 bg-[#F58220] text-white border-none">
             <Trophy className="w-4 h-4 mr-2 inline" />
             Tournament Structure
           </Badge>
-          <h2 className="text-4xl md:text-5xl text-white font-extrabold mb-4">
+          <h2 className="text-4xl md:text-5xl text-white font-extrabold mb-4 font-montserrat">
             Age Categories
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-[#CCCCCC] max-w-2xl mx-auto font-lato">
             MOI CUP 2025 welcomes young footballers across multiple age groups
           </p>
         </div>
@@ -52,86 +54,28 @@ const TournamentSection = () => {
         {/* Categories Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Boys Categories */}
-          <Card className="overflow-hidden hover-scale border-2 p-0">
-            <div className="relative h-64 overflow-hidden">
-              <Image
-                fill
-                src={"/playerBoysImg.jpeg"}
-                alt="Boys Football Category"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 hero-gradient"></div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-3xl font-extrabold text-white flex items-center gap-2">
-                  <Users className="w-8 h-8" />
-                  Boys Categories
-                </h3>
-              </div>
-            </div>
-            <CardContent className="p-6">
-              <div className="space-y-3">
-                {boysCategories.map((category, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center p-3 rounded-lg bg-muted/50 hover:bg-[#F58220] transition-colors"
-                  >
-                    <span className="font-bold text-lg">
-                      {category.ageGroup}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {category.bornAfter}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <CategoryCard
+            gender={"Boys"}
+            categories={boysCategories}
+            bgImg={"/playerBoysImg.jpeg"}
+          />
 
           {/* Girls Categories */}
-          <Card className="overflow-hidden hover-scale border-2 p-0">
-            <div className="relative h-64 overflow-hidden">
-              <Image
-                fill
-                src={"/playerGirlsImg.jpeg"}
-                alt="Girls Football Category"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 hero-gradient"></div>
-              <div className="absolute bottom-4 left-4">
-                <h3 className="text-3xl font-extrabold text-white flex items-center gap-2">
-                  <Users className="w-8 h-8" />
-                  Girls Categories
-                </h3>
-              </div>
-            </div>
-            <CardContent className="p-6">
-              <div className="space-y-3">
-                {girlsCategories.map((category, index) => (
-                  <div
-                    key={index}
-                    className="flex justify-between items-center p-3 rounded-lg bg-muted/50 hover:bg-[#F58220] transition-colors"
-                  >
-                    <span className="font-bold text-lg">
-                      {category.ageGroup}
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {category.bornAfter}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+          <CategoryCard
+            gender={"Girls"}
+            categories={girlsCategories}
+            bgImg={"/playerGirlsImg.jpeg"}
+          />
         </div>
 
         {/* Individual Awards Section */}
-        <Card className="bg-[#0B1E4A]/95 text-primary-foreground pitch-lines">
+        <Card className="border-2 border-[#F58220] bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] text-white pitch-lines">
           <CardHeader className="text-center">
-            <CardTitle className="text-3xl font-extrabold flex items-center justify-center gap-3">
-              <Award color="#F58220" className="w-8 h-8" />
+            <CardTitle className="text-3xl font-extrabold flex items-center justify-center gap-3 font-montserrat">
+              <Award className="w-8 h-8 text-[#F58220]" />
               Individual Awards
             </CardTitle>
-            <CardDescription className="text-primary-foreground/80 text-lg">
+            <CardDescription className="text-[#CCCCCC] text-lg font-lato">
               Recognizing outstanding individual performances
             </CardDescription>
           </CardHeader>
@@ -140,10 +84,14 @@ const TournamentSection = () => {
               {individualAwards.map((award, index) => (
                 <div
                   key={index}
-                  className="bg-white/5 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/20 transition-colors hover-scale"
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-6 text-center border-2 border-[#F58220] hover:bg-[#F58220] hover:border-white transition-all duration-300 hover-scale group"
                 >
-                  <Trophy className="w-12 h-12 mx-auto mb-3 text-accent" />
-                  <h4 className="text-xl font-bold">{award}</h4>
+                  <div className="w-16 h-16 bg-[#F58220] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-white transition-colors">
+                    <Trophy className="w-8 h-8 text-white group-hover:text-[#F58220]" />
+                  </div>
+                  <h4 className="text-xl font-bold text-white group-hover:text-white font-montserrat">
+                    {award}
+                  </h4>
                 </div>
               ))}
             </div>
@@ -151,6 +99,50 @@ const TournamentSection = () => {
         </Card>
       </div>
     </section>
+  );
+};
+
+type CardProps = { gender: string; bgImg: string; categories: Category[] };
+
+const CategoryCard: FC<CardProps> = ({ gender, bgImg, categories }) => {
+  return (
+    <Card className="overflow-hidden hover-scale border-2 border-[#F58220] bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] p-0">
+      <div className="relative h-64 overflow-hidden">
+        <Image
+          fill
+          src={bgImg}
+          alt="Boys Football Category"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1E4A] via-[#0B1E4A]/60 to-transparent"></div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <h3 className="text-3xl font-extrabold text-white flex items-center gap-2 font-montserrat">
+            <Users className="w-8 h-8 text-[#F58220]" />
+            {gender} Categories
+          </h3>
+          <Badge className="bg-[#F58220] text-white border-none mt-2 font-montserrat">
+            {categories.length} Age Groups
+          </Badge>
+        </div>
+      </div>
+      <CardContent className="p-6">
+        <div className="space-y-3">
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="flex justify-between items-center p-4 rounded-lg bg-white/10 border border-white/20 hover:bg-[#F58220] hover:border-[#F58220] transition-all duration-300 group"
+            >
+              <span className="font-bold text-white text-lg font-montserrat group-hover:text-white">
+                {category.ageGroup}
+              </span>
+              <span className="text-sm text-[#CCCCCC] group-hover:text-white/90 font-lato text-right">
+                {category.bornAfter}
+              </span>
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

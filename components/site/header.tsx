@@ -4,13 +4,14 @@ import { Menu, X } from "lucide-react";
 import React from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import { useScrollPersist } from "@/hooks/use-scroll";
 
 const menuItems = [
   // { name: "About", href: "/about" },
   //   { name: "Tournament Info", href: "/tournament-info" },
   { name: "Registration Guidelines", href: "/guidelines" },
   { name: "Partners & Sponsors", href: "/partners" },
-  // { name: "News & Announcements", href: "/news" },
+  { name: "News & Announcements", href: "/blogs" },
   { name: "Media & Gallery", href: "/gallery" },
 ];
 
@@ -21,15 +22,7 @@ const tournamentItems = [
 
 export const SiteHeader = () => {
   const [menuState, setMenuState] = React.useState(false);
-  const [isScrolled, setIsScrolled] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const isScrolled = useScrollPersist();
 
   return (
     <header>
@@ -53,12 +46,12 @@ export const SiteHeader = () => {
               className="flex items-center space-x-3 z-30"
             >
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-[#F58220] rounded-full flex items-center justify-center p-1">
+                <div className=" bg-white rounded-full flex items-center justify-center p-1">
                   <Image
                     src="/moi-cup-logo.png"
                     alt="MOI CUP Logo"
-                    width={45}
-                    height={45}
+                    width={70}
+                    height={70}
                     className="object-contain"
                   />
                 </div>

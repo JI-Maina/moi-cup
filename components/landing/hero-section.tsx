@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { CountdownTimer } from "./count-down";
 
 const HeroSection = () => {
   return (
@@ -24,7 +25,7 @@ const HeroSection = () => {
           <div className="text-left space-y-8">
             {/* Main Title */}
             <div>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tight leading-none">
+              <h1 className="text-6xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-none font-montserrat">
                 Moi Cup
               </h1>
               <div className="h-2 w-32 bg-[#F58220] mt-4 mb-6"></div>
@@ -32,22 +33,25 @@ const HeroSection = () => {
 
             {/* Date & Location */}
             <div className="space-y-4">
-              <p className="text-2xl md:text-3xl font-bold text-[#F58220] tracking-widest">
+              <p className="text-2xl md:text-3xl font-bold text-[#F58220] tracking-widest font-montserrat">
                 11TH - 13TH NOVEMBER 2025
               </p>
-              <p className="text-xl md:text-2xl font-semibold text-white">
+              <p className="text-xl md:text-2xl font-semibold text-white font-montserrat">
                 ULINZI SPORTS COMPLEX - NAIROBI
               </p>
             </div>
 
+            {/* Countdown Timer */}
+            <CountdownTimer />
+
             {/* Mission Statement */}
-            <div className="space-y-4">
-              <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl">
+            {/* <div className="space-y-4">
+              <p className="text-lg md:text-xl leading-relaxed text-white/90 max-w-2xl font-lato">
                 Empowering Youth, Showcasing Talent, Celebrating Football,
                 Promoting Fair Play, Building Character, Inspiring Dreams,
                 Shaping Future Champions.
               </p>
-            </div>
+            </div> */}
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -58,14 +62,18 @@ const HeroSection = () => {
               >
                 <Button
                   size="lg"
-                  className="px-8 py-3 text-lg font-bold bg-[#F58220] hover:bg-white text-white hover:text-[#0B1E4A] transition-all duration-300 shadow-lg hover:shadow-xl"
+                  className="px-8 py-3 text-lg font-bold bg-[#F58220] hover:bg-white text-white hover:text-[#0B1E4A] transition-all duration-300 shadow-lg hover:shadow-xl font-montserrat"
                 >
                   Register Now
                 </Button>
               </a>
 
               <Link href={"/guidelines"}>
-                <Button variant="outline" size="lg">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-[#0B1E4A] hover:bg-[#F58220] font-montserrat"
+                >
                   Learn More
                 </Button>
               </Link>
@@ -74,9 +82,11 @@ const HeroSection = () => {
 
           {/* Right Side - Football Player Image */}
           <div className="flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-md lg:max-w-lg h-[50vh] lg:h-[80vh]">
+            <div className="relative w-full max-w-lg xl:max-w-2xl h-[100vh] lg:h-[150vh] -mt-10 lg:-mt-0">
+              {" "}
+              {/* Slightly larger with optional negative margin */}
               <Image
-                src="/hero-player.png"
+                src="/hero-img.png"
                 alt="Football Player"
                 fill
                 className="rounded-2xl object-contain"

@@ -176,7 +176,7 @@ const teamsData = {
     "Diaspora Soccer Academy",
     "Ligi Ndogo SC (4)",
   ],
-  "U13 Boys": [
+  U13: [
     "Warriors Soccer Academy",
     "Crown Football Academy",
     "Funcity Soccer Academy",

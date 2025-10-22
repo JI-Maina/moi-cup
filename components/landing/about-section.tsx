@@ -6,31 +6,29 @@ const AboutSection = () => {
       id="about"
       className="relative py-20 bg-[#0B1E4A]/95 overflow-hidden pitch-lines"
     >
-      {/* Background Pattern (Needs definition in global.css to work) */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 football-pattern opacity-10"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-[--font-montserrat]">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-montserrat">
             About MOI CUP 2025
           </h2>
-          {/* Divider using Bright Orange */}
-          <div className="w-24 h-1 bg-[--bright-orange] mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-[#CCCCCC] max-w-3xl mx-auto font-[--font-lato]">
+          <div className="w-24 h-1 bg-[#F58220] mx-auto mb-6 rounded-full"></div>
+          <p className="text-xl text-[#CCCCCC] max-w-3xl mx-auto font-lato">
             East Africa&apos;s Premier Youth Football Tournament - Building
             Future Football Leaders
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-stretch mb-16">
-          {/* Mission Card (Midnight Blue Gradient) */}
-          <div className="bg-white p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 border border-[--white]/10 hover:scale-[1.01] hover-lift">
+          {/* Mission Card */}
+          <div className="bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 border-2 border-[#F58220] hover:scale-[1.01] hover-lift">
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-[--bright-orange] rounded-full flex items-center justify-center mr-4">
-                {/* Custom Icon for Mission */}
+              <div className="w-12 h-12 bg-[#F58220] rounded-full flex items-center justify-center mr-4">
                 <svg
-                  className="w-6 h-6 text-[--white]"
+                  className="w-6 h-6 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -44,24 +42,23 @@ const AboutSection = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[--white] font-[--font-montserrat]">
+              <h3 className="text-2xl font-bold text-white font-montserrat">
                 Our Mission
               </h3>
             </div>
-            <p className="text-[--steel-grey] text-lg leading-relaxed font-[--font-lato]">
+            <p className="text-[#CCCCCC] text-lg leading-relaxed font-lato">
               To become the leading youth football tournament in East Africa by
               nurturing talent, promoting integrity, and building future
               football leaders.
             </p>
           </div>
 
-          {/* Vision Card (Bright Orange Gradient - High Contrast) */}
-          <div className="bg-white p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.01] hover-lift">
+          {/* Vision Card */}
+          <div className="bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 border-2 border-[#F58220] hover:scale-[1.01] hover-lift">
             <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-[--white] rounded-full flex items-center justify-center mr-4">
-                {/* Custom Icon for Vision */}
+              <div className="w-12 h-12 bg-[#F58220] rounded-full flex items-center justify-center mr-4">
                 <svg
-                  className="w-6 h-6 text-[--bright-orange]"
+                  className="w-6 h-6 text-white"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -81,11 +78,11 @@ const AboutSection = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-[--white] font-[--font-montserrat]">
+              <h3 className="text-2xl font-bold text-white font-montserrat">
                 Our Vision
               </h3>
             </div>
-            <p className="text-[--white]/90 text-lg leading-relaxed font-[--font-lato]">
+            <p className="text-white/90 text-lg leading-relaxed font-lato">
               To offer a safe, competitive, and well-organized football platform
               where young players can showcase their skills, build character,
               and develop through structured competition.
@@ -95,25 +92,24 @@ const AboutSection = () => {
 
         {/* Objectives Section */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center text-white mb-12 font-[--font-montserrat]">
+          <h3 className="text-3xl font-bold text-center text-white mb-12 font-montserrat">
             Tournament Objectives
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {objectives.map((objective, index) => (
               <div
                 key={index}
-                className="bg-white backdrop-blur-sm p-6 rounded-xl shadow-lg border border-[--white]/10 group hover:scale-[1.03] transition-all duration-300 hover:border-[--bright-orange] hover-lift"
+                className="bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] backdrop-blur-sm p-6 rounded-xl shadow-lg border-2 border-[#F58220] group hover:scale-[1.03] transition-all duration-300 hover:border-white hover-lift"
               >
-                {/* Number Circle (Orange/White Inversion on Hover) */}
-                <div className="w-10 h-10 bg-[--bright-orange] rounded-full flex items-center justify-center mb-4 group-hover:bg-[--white] transition-colors duration-300">
-                  <span className="text-[--white] font-bold text-sm group-hover:text-[--bright-orange] font-[--font-montserrat]">
+                <div className="w-10 h-10 bg-[#F58220] rounded-full flex items-center justify-center mb-4 group-hover:bg-white transition-colors duration-300">
+                  <span className="text-white font-bold text-sm group-hover:text-[#F58220] font-montserrat">
                     {index + 1}
                   </span>
                 </div>
-                <h4 className="text-lg font-bold text-[--white] mb-3 font-[--font-montserrat]">
+                <h4 className="text-lg font-bold text-white mb-3 font-montserrat">
                   {objective.title}
                 </h4>
-                <p className="text-[--steel-grey] text-sm leading-relaxed font-[--font-lato]">
+                <p className="text-[#CCCCCC] text-sm leading-relaxed font-lato">
                   {objective.description}
                 </p>
               </div>

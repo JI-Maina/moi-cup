@@ -78,12 +78,12 @@ export function SiteFooter() {
             <div className="flex items-center mb-4">
               {/* Replace with your actual logo */}
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-[#F58220] rounded-full flex items-center justify-center p-1">
+                <div className=" bg-white rounded-full flex items-center justify-center p-1">
                   <Image
                     src="/moi-cup-logo.png"
                     alt="MOI CUP Logo"
-                    width={45}
-                    height={45}
+                    width={70}
+                    height={70}
                     className="object-contain"
                   />
                 </div>
