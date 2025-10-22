@@ -49,7 +49,7 @@ const HeroSection = () => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https:moicup.aidaform.com/tournamentregistrationform"
+                href="https://moicup.aidaform.com/tournamentregistrationform"
               >
                 <Button
                   size="lg"
