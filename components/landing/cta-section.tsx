@@ -23,20 +23,33 @@ const CallToAction = () => {
           tournament. Limited slots available!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            className="bg-[#F58220] border-2 hover:bg-[#0B1E4A] text-white font-semibold text-lg px-8 py-6"
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://moicup.aidaform.com/tournamentregistrationform"
           >
-            Register Your Team
-            <ArrowRight className="ml-2" />
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-2 border-white hover:bg-[#F58220] font-semibold text-lg px-8 py-6"
+            <Button
+              size="lg"
+              className="bg-[#F58220] border-2 hover:bg-[#0B1E4A] text-white font-semibold text-lg px-8 py-6"
+            >
+              Register Your Team
+              <ArrowRight className="ml-2" />
+            </Button>
+          </a>
+
+          <a
+            href="/brochure-moi-cup-2025.pdf"
+            download="MOI-CUP-2025-Brochure.pdf"
+            className="inline-block"
           >
-            Download Brochure
-          </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-2 border-white hover:bg-[#F58220] font-semibold text-lg px-8 py-6"
+            >
+              Download Brochure
+            </Button>
+          </a>
         </div>
       </div>
     </section>

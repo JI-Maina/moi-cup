@@ -27,7 +27,7 @@ const Gallery = () => {
     selectedCategory === "All" ? gallery24Images : gallery24Images;
 
   return (
-    <main className="min-h-screen bg-[#0B1E4A]/95">
+    <main className="min-h-screen bg-[#0B1E4A]/95 pitch-lines">
       {/* Hero Section */}
       <section className="relative h-[50vh] min-h-[400px]">
         <div

@@ -99,7 +99,7 @@ const pitchSpecifications = [
 
 const GuidelinesPage = () => {
   return (
-    <main className="bg-[#0B1E4A]/95">
+    <main className="bg-[#0B1E4A]/95 pitch-lines">
       <div className="relative h-[500px] md:h-[600px]">
         <Image
           fill
@@ -117,12 +117,19 @@ const GuidelinesPage = () => {
             <p className="text-xl md:text-2xl text-[#CCCCCC] font-semibold mb-4">
               Moi Cup 2025
             </p>
-            <Button
-              size="lg"
-              className="bg-[#F58220] mt-4 border-2 hover:bg-[#0B1E4A] text-white font-semibold text-lg px-8 py-6"
+
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://moicup.aidaform.com/tournamentregistrationform"
             >
-              Register Your Team
-            </Button>
+              <Button
+                size="lg"
+                className="bg-[#F58220] mt-4 border-2 hover:bg-[#0B1E4A] text-white font-semibold text-lg px-8 py-6"
+              >
+                Register Your Team
+              </Button>
+            </a>
           </div>
         </div>
       </div>

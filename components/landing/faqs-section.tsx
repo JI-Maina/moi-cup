@@ -37,13 +37,13 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-[#0B1E4A]/95 pitch-lines">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-[#CCCCCC] max-w-2xl mx-auto">
             Everything you need to know about Moi Cup 2025
           </p>
         </div>
@@ -62,10 +62,10 @@ const FAQSection = () => {
             <Accordion type="single" collapsible className="w-full">
               {faqs.map((faq, index) => (
                 <AccordionItem key={index} value={`item-${index}`}>
-                  <AccordionTrigger className="text-left text-lg font-semibold">
+                  <AccordionTrigger className="text-left text-lg text-white font-semibold">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-base leading-relaxed">
+                  <AccordionContent className="text-[#CCCCCC] text-base leading-relaxed">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import Link from "next/link";
 
 const sponsors = [
   { id: 1, name: "Bellerouze Outfitters", image: "/bellerouze-logo.jpeg" },
@@ -19,13 +20,13 @@ const sponsors = [
 
 const PartnersSection = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20 bg-[#0B1E4A]/95 pitch-lines">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Our Partners & Sponsors
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-[#CCCCCC] max-w-2xl mx-auto">
             We're proud to partner with leading organizations who share our
             commitment to developing youth football in Kenya
           </p>
@@ -63,13 +64,15 @@ const PartnersSection = () => {
         </div>
 
         <div className="text-center">
-          <Button
-            size="lg"
-            className="bg-[#F58220] border-2 hover:bg-[#0B1E4A] text-white font-semibold text-lg px-8 py-6"
-          >
-            Become a Sponsor
-            <ArrowRight className="ml-2" />
-          </Button>
+          <Link href={"/partners"}>
+            <Button
+              size="lg"
+              className="bg-[#F58220] border-2 hover:bg-[#0B1E4A] text-white font-semibold text-lg px-8 py-6"
+            >
+              Become a Sponsor
+              <ArrowRight className="ml-2" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

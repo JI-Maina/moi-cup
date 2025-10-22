@@ -33,7 +33,7 @@ const individualAwards = [
 
 const TournamentSection = () => {
   return (
-    <section className="py-16 px-4 md:px-8 bg-[#0B1E4A]/95">
+    <section className="py-16 px-4 md:px-8 bg-[#0B1E4A]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 animate-fade-in">
@@ -125,10 +125,10 @@ const TournamentSection = () => {
         </div>
 
         {/* Individual Awards Section */}
-        <Card className="bg-primary text-primary-foreground pitch-lines">
+        <Card className="bg-[#0B1E4A]/95 text-primary-foreground pitch-lines">
           <CardHeader className="text-center">
             <CardTitle className="text-3xl font-extrabold flex items-center justify-center gap-3">
-              <Award className="w-8 h-8" />
+              <Award color="#F58220" className="w-8 h-8" />
               Individual Awards
             </CardTitle>
             <CardDescription className="text-primary-foreground/80 text-lg">
@@ -140,7 +140,7 @@ const TournamentSection = () => {
               {individualAwards.map((award, index) => (
                 <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/20 transition-colors hover-scale"
+                  className="bg-white/5 backdrop-blur-sm rounded-lg p-6 text-center hover:bg-white/20 transition-colors hover-scale"
                 >
                   <Trophy className="w-12 h-12 mx-auto mb-3 text-accent" />
                   <h4 className="text-xl font-bold">{award}</h4>

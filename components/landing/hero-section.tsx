@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -50,15 +51,24 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
-                size="lg"
-                className="px-8 py-3 text-lg font-bold bg-[#F58220] hover:bg-white text-white hover:text-[#0B1E4A] transition-all duration-300 shadow-lg hover:shadow-xl"
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://moicup.aidaform.com/tournamentregistrationform"
               >
-                Register Now
-              </Button>
-              <Button variant="outline" size="lg">
-                Learn More
-              </Button>
+                <Button
+                  size="lg"
+                  className="px-8 py-3 text-lg font-bold bg-[#F58220] hover:bg-white text-white hover:text-[#0B1E4A] transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Register Now
+                </Button>
+              </a>
+
+              <Link href={"/guidelines"}>
+                <Button variant="outline" size="lg">
+                  Learn More
+                </Button>
+              </Link>
             </div>
           </div>
 

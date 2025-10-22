@@ -1,24 +1,23 @@
 import React from "react";
 
-// Assuming you have defined the following custom utility classes in your global.css/tailwind.config:
-// 1. .football-pattern: For the subtle pitch/texture background.
-// 2. .hover-lift: For the slight elevation/shadow effect on hover.
-
 const AboutSection = () => {
   return (
-    <section id="about" className="relative py-20 bg-muted/30 overflow-hidden">
+    <section
+      id="about"
+      className="relative py-20 bg-[#0B1E4A]/95 overflow-hidden pitch-lines"
+    >
       {/* Background Pattern (Needs definition in global.css to work) */}
       <div className="absolute inset-0 football-pattern opacity-10"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-[--white] mb-4 font-[--font-montserrat]">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 font-[--font-montserrat]">
             About MOI CUP 2025
           </h2>
           {/* Divider using Bright Orange */}
           <div className="w-24 h-1 bg-[--bright-orange] mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-[--steel-grey] max-w-3xl mx-auto font-[--font-lato]">
+          <p className="text-xl text-[#CCCCCC] max-w-3xl mx-auto font-[--font-lato]">
             East Africa&apos;s Premier Youth Football Tournament - Building
             Future Football Leaders
           </p>
@@ -26,7 +25,7 @@ const AboutSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 items-stretch mb-16">
           {/* Mission Card (Midnight Blue Gradient) */}
-          <div className="bg-gradient-to-br from-[--midnight-blue] via-[--midnight-blue] to-[#1a3875] p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 border border-[--white]/10 hover:scale-[1.01] hover-lift">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 border border-[--white]/10 hover:scale-[1.01] hover-lift">
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-[--bright-orange] rounded-full flex items-center justify-center mr-4">
                 {/* Custom Icon for Mission */}
@@ -57,7 +56,7 @@ const AboutSection = () => {
           </div>
 
           {/* Vision Card (Bright Orange Gradient - High Contrast) */}
-          <div className="bg-gradient-to-br from-[--bright-orange] to-orange-600 p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.01] hover-lift">
+          <div className="bg-white p-8 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-[1.01] hover-lift">
             <div className="flex items-center mb-6">
               <div className="w-12 h-12 bg-[--white] rounded-full flex items-center justify-center mr-4">
                 {/* Custom Icon for Vision */}
@@ -96,14 +95,14 @@ const AboutSection = () => {
 
         {/* Objectives Section */}
         <div className="mb-16">
-          <h3 className="text-3xl font-bold text-center text-[--white] mb-12 font-[--font-montserrat]">
+          <h3 className="text-3xl font-bold text-center text-white mb-12 font-[--font-montserrat]">
             Tournament Objectives
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {objectives.map((objective, index) => (
               <div
                 key={index}
-                className="bg-[--white]/5 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-[--white]/10 group hover:scale-[1.03] transition-all duration-300 hover:border-[--bright-orange] hover-lift"
+                className="bg-white backdrop-blur-sm p-6 rounded-xl shadow-lg border border-[--white]/10 group hover:scale-[1.03] transition-all duration-300 hover:border-[--bright-orange] hover-lift"
               >
                 {/* Number Circle (Orange/White Inversion on Hover) */}
                 <div className="w-10 h-10 bg-[--bright-orange] rounded-full flex items-center justify-center mb-4 group-hover:bg-[--white] transition-colors duration-300">
