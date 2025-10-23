@@ -1,3 +1,4 @@
+import { DownloadRegForms } from "@/components/download-forms";
 import AboutSection from "@/components/landing/about-section";
 import CallToAction from "@/components/landing/cta-section";
 import FAQSection from "@/components/landing/faqs-section";
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TournamentSection />
+      <DownloadRegForms />
       <FAQSection />
       <CallToAction />
       <PartnersSection />

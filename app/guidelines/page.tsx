@@ -5,6 +5,7 @@ import { VettingSection } from "./vetting-section";
 import { GuidelinesHeroSection } from "./hero-section";
 import { PitchSpecificationTable } from "./pitch-table";
 import CallToAction from "@/components/landing/cta-section";
+import { DownloadRegForms } from "@/components/download-forms";
 
 const GuidelinesPage = () => {
   return (
@@ -18,6 +19,8 @@ const GuidelinesPage = () => {
       <CallToAction />
 
       <FormatSection />
+
+      <DownloadRegForms />
 
       <section className="px-4 pb-10 md:px-8">
         <RulesTable />

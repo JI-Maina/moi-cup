@@ -2,6 +2,7 @@ import { Users } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { DownloadRegForms } from "@/components/download-forms";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const RegisteredTeamsPage = () => {
@@ -109,6 +110,8 @@ const RegisteredTeamsPage = () => {
           ))}
         </Tabs>
       </section>
+
+      <DownloadRegForms />
     </main>
   );
 };
