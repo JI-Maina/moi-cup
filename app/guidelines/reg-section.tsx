@@ -122,7 +122,7 @@ export const TeamRegSection = () => {
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-[#F58220]" />
                   <p className="text-white font-semibold">
-                    Extended Payment Deadline: Friday, 25th October 2025
+                    Extended Payment Deadline: Saturday, 25th October 2025
                   </p>
                 </div>
                 <p className="text-white text-sm mt-2">
