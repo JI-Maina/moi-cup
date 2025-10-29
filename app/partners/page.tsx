@@ -22,7 +22,7 @@ const partners = [
     id: 2,
     name: "Kenya Dairy Board (KDB)",
     role: "Nutrition Partner",
-    logo: "/partner-kdb.jpg",
+    logo: "/kdb-logo.webp",
     description: [
       "Free milk for participants on specific tournament days.",
       "Supports player energy, growth & wellness.",
