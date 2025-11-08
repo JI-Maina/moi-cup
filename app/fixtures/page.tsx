@@ -1,11 +1,25 @@
-import React from "react";
+import { FixturesWrapper } from "./all-fixtures";
 
-const FixturesPage = () => {
-  return (
-    <main className="bg-[#0B1E4A]/95 h-screen flex items-center justify-center text-white font-mono text-4xl">
-      Updating soon
-    </main>
+const getFixtures = async () => {
+  const res = await fetch(
+    "https://apis.tisini.co.ke/apiagent5.php?leaguefixture=108",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
   );
+
+  return await res.json();
+};
+
+const FixturesPage = async () => {
+  const data = await getFixtures();
+
+  console.log(data);
+
+  return <FixturesWrapper />;
 };
 
 export default FixturesPage;
