@@ -33,6 +33,7 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
       ? fixturesData[date][category]
       : [];
 
+  console.log(data.length);
   console.log(fixturesData);
   console.log(category);
   console.log(fixtures);

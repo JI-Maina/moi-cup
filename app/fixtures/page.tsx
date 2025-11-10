@@ -9,6 +9,7 @@ const getFixtures = async (): Promise<Fixture[]> => {
       headers: {
         "Content-Type": "application/json",
       },
+      next: { revalidate: 60 },
     }
   );
 
