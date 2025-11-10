@@ -12,7 +12,7 @@ const leagues = [
   { id: "U13", cat: "U13 Boys" },
   { id: "U15", cat: "U15 Boys" },
   { id: "U17", cat: "U17 Boys" },
-  { id: "U13G", cat: "U13 Girls" },
+  // { id: "U13G", cat: "U13 Girls" },
   { id: "U15G", cat: "U15 Girls" },
 ];
 
