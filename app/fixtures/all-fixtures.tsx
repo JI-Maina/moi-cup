@@ -33,7 +33,9 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
       ? fixturesData[date][category]
       : [];
 
+  console.log(fixturesData);
   console.log(category);
+  console.log(fixtures);
 
   return (
     <main className="min-h-screen bg-[#0B1E4A]/95 pitch-lines pt-24">
