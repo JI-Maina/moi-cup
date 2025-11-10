@@ -1,8 +1,9 @@
+import { Fixture } from "@/types/moi-cup";
 import { FixturesWrapper } from "./all-fixtures";
 
-const getFixtures = async () => {
+const getFixtures = async (): Promise<Fixture[]> => {
   const res = await fetch(
-    "https://apis.tisini.co.ke/apiagent5.php?leaguefixture=108",
+    "https://apis.tisini.co.ke/apiagent5.php?leaguefixture=213",
     {
       method: "GET",
       headers: {
@@ -17,9 +18,7 @@ const getFixtures = async () => {
 const FixturesPage = async () => {
   const data = await getFixtures();
 
-  console.log(data);
-
-  return <FixturesWrapper />;
+  return <FixturesWrapper data={data as Fixture[]} />;
 };
 
 export default FixturesPage;

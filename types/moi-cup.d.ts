@@ -40,3 +40,11 @@ export interface Fixture {
   groupname: string;
   matchtime: string;
 }
+
+export type GroupedFixtures = {
+  [date: string]: {
+    [category: string]: {
+      [group: string]: Fixture[];
+    };
+  };
+};
