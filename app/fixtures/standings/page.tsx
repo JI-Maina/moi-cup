@@ -2,7 +2,14 @@
 
 import { Standing } from "@/types/moi-cup";
 import React, { useEffect, useState } from "react";
-import { Trophy, Users, Award } from "lucide-react";
+import {
+  Trophy,
+  Users,
+  Award,
+  Filter,
+  ChevronUp,
+  ChevronDown,
+} from "lucide-react";
 import { getStandings } from "@/actions/actions";
 
 // Age categories for navigation
@@ -22,6 +29,7 @@ const StandingsPage = () => {
   const [data, setData] = useState<Standing | null>(null);
   const [selectedPool, setSelectedPool] = useState(0); // Track selected pool index
   const [loading, setLoading] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchStandings = async () => {
@@ -49,26 +57,54 @@ const StandingsPage = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Sidebar - Age Categories */}
-          <aside className="lg:w-64">
-            <div className="bg-gradient-to-b from-[#0B1E4A] to-[#0F2A5C] border-2 border-[#F58220] rounded-xl p-6">
+          <aside className="lg:w-80">
+            {/* Mobile Menu Toggle */}
+            <div className="lg:hidden mb-4">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="w-full bg-gradient-to-r from-[#0B1E4A] to-[#0F2A5C] border-2 border-[#F58220] text-white p-4 rounded-xl font-semibold flex items-center justify-between hover:bg-[#F58220] transition-all duration-300"
+              >
+                <span className="flex items-center gap-2">
+                  <Filter className="w-5 h-5" />
+                  {ageCategories.find((l) => l.id === category)?.name ||
+                    "Select Category"}
+                </span>
+                {isMobileMenuOpen ? (
+                  <ChevronUp className="w-5 h-5" />
+                ) : (
+                  <ChevronDown className="w-5 h-5" />
+                )}
+              </button>
+            </div>
+
+            {/* Categories List */}
+            <div
+              className={`
+              ${isMobileMenuOpen ? "block" : "hidden"} 
+              lg:block bg-gradient-to-b from-[#0B1E4A] to-[#0F2A5C] border-2 border-[#F58220] rounded-xl p-4 lg:p-6
+            `}
+            >
               <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2 font-montserrat">
-                <Trophy className="w-5 h-5 text-[#F58220]" />
+                <Filter className="w-5 h-5 text-[#F58220]" />
                 Age Categories
               </h3>
 
               <div className="space-y-2">
                 {ageCategories.map((ageCat) => (
-                  <div
+                  <button
                     key={ageCat.id}
-                    onClick={() => setCategory(ageCat.id)}
-                    className={`w-full text-left p-3 rounded-lg transition-all duration-300 font-lato block cursor-pointer ${
+                    onClick={() => {
+                      setCategory(ageCat.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`w-full text-left p-3 rounded-lg transition-all duration-300 font-lato ${
                       category === ageCat.id
                         ? "bg-[#F58220] text-white shadow-lg"
                         : "bg-white/10 text-[#CCCCCC] hover:bg-white/20 hover:text-white"
                     }`}
                   >
                     <span className="font-semibold">{ageCat.name}</span>
-                  </div>
+                  </button>
                 ))}
               </div>
             </div>

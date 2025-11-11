@@ -38,8 +38,8 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
 
   // console.log(data.length);
   // console.log(fixturesData);
-  // console.log(category);
-  // console.log(fixtures);
+  console.log(category);
+  console.log(fixtures);
 
   return (
     <main className="min-h-screen bg-[#0B1E4A]/95 pitch-lines pt-24">
@@ -227,7 +227,7 @@ export const FixtureCard: React.FC<FixtureCardProps> = ({ fixture }) => {
           color: "text-red-400 animate-pulse",
           scoreVisible: true,
         };
-      case "finished":
+      case "FT":
         return {
           text: "FT",
           color: "text-green-400",
