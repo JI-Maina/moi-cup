@@ -17,29 +17,27 @@ const leagues = [
   { id: "U15G", cat: "U15 Girls" },
 ];
 
-const dates = ["11 Tue", "12 Wed", "13 Thu"];
-const DATES = ["2025-11-11", "2024-11-12", "2024-11-13"];
+const dates = ["2025-11-11", "2025-11-12", "2025-11-13"];
 
 export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
-  const [selectedLeague, setSelectedLeague] = useState("1");
-  const [selectedDate, setSelectedDate] = useState("11 Tue");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [date, setDate] = useState(DATES[0]);
+  const [selectedDate, setSelectedDate] = useState(dates[0]);
   const [category, setCategory] = useState("U7");
 
   const router = useRouter();
 
   const fixturesData = GroupFixtures(data);
   const fixtures =
-    fixturesData[date] && fixturesData[date][category]
-      ? fixturesData[date][category]
+    fixturesData[selectedDate] && fixturesData[selectedDate][category]
+      ? fixturesData[selectedDate][category]
       : [];
 
-  // console.log(data.length);
+  // console.log(data);
   // console.log(fixturesData);
-  console.log(category);
-  console.log(fixtures);
+  // console.log(selectedDate);
+  // console.log(category);
+  // console.log(fixtures);
 
   return (
     <main className="min-h-screen bg-[#0B1E4A]/95 pitch-lines pt-24">
@@ -55,7 +53,7 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
               >
                 <span className="flex items-center gap-2">
                   <Filter className="w-5 h-5" />
-                  {leagues.find((l) => l.id === selectedLeague)?.cat ||
+                  {leagues.find((l) => l.id === category)?.cat ||
                     "Select Category"}
                 </span>
                 {isMobileMenuOpen ? (
@@ -84,11 +82,10 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
                     key={league.id}
                     onClick={() => {
                       setCategory(league.id);
-                      setSelectedLeague(league.id);
                       setIsMobileMenuOpen(false);
                     }}
                     className={`w-full text-left p-3 rounded-lg transition-all duration-300 font-lato ${
-                      selectedLeague === league.id
+                      category === league.id
                         ? "bg-[#F58220] text-white shadow-lg"
                         : "bg-white/10 text-[#CCCCCC] hover:bg-white/20 hover:text-white"
                     }`}
@@ -122,7 +119,10 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
                         : "bg-white/10 text-[#CCCCCC] hover:bg-white/20 hover:text-white"
                     }`}
                   >
-                    {date}
+                    {new Date(date).toLocaleDateString("en-GB", {
+                      day: "2-digit",
+                      month: "short",
+                    })}
                   </button>
                 ))}
                 <button
@@ -182,7 +182,7 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
                       </h3>
                       <p className="text-[#CCCCCC] font-lato">
                         Fixtures for{" "}
-                        {leagues.find((l) => l.id === selectedLeague)?.cat} on{" "}
+                        {leagues.find((l) => l.id === category)?.cat} on{" "}
                         {selectedDate} will be posted soon.
                       </p>
                     </div>
