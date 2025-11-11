@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import { Calendar, Filter, ChevronDown, ChevronUp } from "lucide-react";
 
 import { Fixture, GroupedFixtures } from "@/types/moi-cup";
+import { useRouter } from "next/navigation";
 
 const leagues = [
   { id: "U7", cat: "U7 Boys" },
@@ -27,16 +28,18 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
   const [date, setDate] = useState(DATES[0]);
   const [category, setCategory] = useState("U7");
 
+  const router = useRouter();
+
   const fixturesData = GroupFixtures(data);
   const fixtures =
     fixturesData[date] && fixturesData[date][category]
       ? fixturesData[date][category]
       : [];
 
-  console.log(data.length);
-  console.log(fixturesData);
-  console.log(category);
-  console.log(fixtures);
+  // console.log(data.length);
+  // console.log(fixturesData);
+  // console.log(category);
+  // console.log(fixtures);
 
   return (
     <main className="min-h-screen bg-[#0B1E4A]/95 pitch-lines pt-24">
@@ -122,6 +125,12 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
                     {date}
                   </button>
                 ))}
+                <button
+                  onClick={() => router.push(`/fixtures/standings`)}
+                  className="ml-auto px-4 py-2 rounded-lg bg-[#F58220] text-white hover:bg-white/20 hover:text-white font-semibold transition-all duration-300 font-montserrat cursor-pointer"
+                >
+                  Standings
+                </button>
               </div>
             </div>
 
@@ -145,9 +154,6 @@ export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
                             <h2 className="">
                               {groupFixtures[0].category} - {groupName}
                             </h2>
-                            <span className="text-slate-300 text-xs cursor-pointer hover:text-green-600">
-                              Standings
-                            </span>
                           </div>
                           {groupFixtures.map((fixture) => (
                             <FixtureCard key={fixture.id} fixture={fixture} />

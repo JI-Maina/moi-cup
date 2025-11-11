@@ -48,3 +48,48 @@ export type GroupedFixtures = {
     };
   };
 };
+
+export interface Tournament {
+  id: string;
+  name: string;
+  date_created: string;
+  fixture_type: string;
+  created_by: string;
+  date_updated: string;
+  date_from: string | null;
+  date_to: string | null;
+  status: string;
+  is_competitive: string;
+  leaguelogo: null | string;
+}
+
+export interface TeamStanding {
+  team: string;
+  P: number;
+  W: number;
+  D: number;
+  L: number;
+  GF: number;
+  GA: number;
+  GD: number;
+  Pts: number;
+  live: null;
+}
+
+export interface Group {
+  groupname: string;
+  fixtures_count: number;
+  standings: TeamStanding[];
+}
+
+export interface Category {
+  category: string;
+  groups: Group[];
+}
+
+export interface Standing {
+  tournament_id: string;
+  tournament: Tournament;
+  series_id: string;
+  categories: Category[];
+}
