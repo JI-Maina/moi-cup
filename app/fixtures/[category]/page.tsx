@@ -1,30 +1,9 @@
 "use client";
 
 import { Standing } from "@/types/moi-cup";
-import React, { FC, useEffect, useState } from "react";
-import { Trophy, Users, Award, ChevronDown, ChevronUp } from "lucide-react";
-
-const getStandings = async (cat: string): Promise<any> => {
-  const url = process.env.NEXT_PUBLIC_DJANGO_HOST;
-  const token = process.env.NEXT_PUBLIC_TOKEN;
-
-  const res = await fetch(
-    `${url}/api/tournament-standings/${token}/?tournament_id=213&series_id=143&category=${cat}`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      next: { revalidate: 60 },
-    }
-  );
-
-  if (res.ok === false) {
-    throw new Error("Failed to fetch standings data");
-  }
-
-  return await res.json();
-};
+import React, { useEffect, useState } from "react";
+import { Trophy, Users, Award } from "lucide-react";
+import { getStandings } from "@/actions/actions";
 
 // Age categories for navigation
 const ageCategories = [
@@ -41,12 +20,21 @@ const ageCategories = [
 const StandingsPage = () => {
   const [category, setCategory] = useState(ageCategories[0].id);
   const [data, setData] = useState<Standing | null>(null);
+  const [selectedPool, setSelectedPool] = useState(0); // Track selected pool index
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchStandings = async () => {
-      const data = await getStandings(category);
-
-      setData(data);
+      setLoading(true);
+      try {
+        const data = await getStandings(category);
+        setData(data);
+        setSelectedPool(0); // Reset to first pool when category changes
+      } catch (error) {
+        console.error("Failed to fetch standings:", error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchStandings();
@@ -73,7 +61,7 @@ const StandingsPage = () => {
                   <div
                     key={ageCat.id}
                     onClick={() => setCategory(ageCat.id)}
-                    className={`w-full text-left p-3 rounded-lg transition-all duration-300 font-lato block ${
+                    className={`w-full text-left p-3 rounded-lg transition-all duration-300 font-lato block cursor-pointer ${
                       category === ageCat.id
                         ? "bg-[#F58220] text-white shadow-lg"
                         : "bg-white/10 text-[#CCCCCC] hover:bg-white/20 hover:text-white"
@@ -88,9 +76,10 @@ const StandingsPage = () => {
 
           {/* Main Content */}
           <section className="flex-1">
-            {/* Current Category Header */}
+            {/* Current Category Header with Pool Tabs */}
             <div className="bg-gradient-to-r from-[#0B1E4A] to-[#0F2A5C] border-2 border-[#F58220] rounded-xl p-6 mb-6">
-              <div className="flex items-center justify-between">
+              {/* Top Row - Category Info */}
+              <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <Users className="w-8 h-8 text-[#F58220]" />
                   <div>
@@ -121,15 +110,46 @@ const StandingsPage = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Pool Tabs */}
+              {groups.length > 0 && (
+                <div className="border-t border-white/20 pt-4">
+                  <div className="flex flex-wrap gap-2">
+                    {groups.map((group: any, index: number) => (
+                      <button
+                        key={index}
+                        onClick={() => setSelectedPool(index)}
+                        className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 font-montserrat border-2 ${
+                          selectedPool === index
+                            ? "bg-[#F58220] border-[#F58220] text-white shadow-lg"
+                            : "bg-white/10 border-white/20 text-[#CCCCCC] hover:bg-white/20 hover:text-white hover:border-[#F58220]"
+                        }`}
+                      >
+                        {group.groupname}
+                        <span className="ml-2 text-xs opacity-80">
+                          ({group.standings.length} teams)
+                        </span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            {/* Pool Tabs */}
-            {groups.length > 0 ? (
+            {/* Pool Standings - Show Only Selected Pool */}
+            {loading ? (
+              <div className="flex justify-center items-center py-12">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#F58220]"></div>
+              </div>
+            ) : groups.length > 0 ? (
               <div className="space-y-6">
+                {/* Only render the selected pool */}
                 {groups.map((group: any, groupIndex: number) => (
                   <div
                     key={groupIndex}
-                    className="bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] border-2 border-[#F58220] rounded-xl overflow-hidden"
+                    className={`bg-gradient-to-br from-[#0B1E4A] to-[#0F2A5C] border-2 border-[#F58220] rounded-xl overflow-hidden transition-all duration-300 ${
+                      selectedPool === groupIndex ? "block" : "hidden"
+                    }`}
                   >
                     {/* Pool Header */}
                     <div className="bg-[#F58220] px-6 py-4">
