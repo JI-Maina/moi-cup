@@ -22,7 +22,7 @@ const dates = ["2025-11-11", "2025-11-12", "2025-11-13"];
 export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState(dates[0]);
+  const [selectedDate, setSelectedDate] = useState(dates[1]);
   const [category, setCategory] = useState("U7");
 
   const router = useRouter();
@@ -311,7 +311,7 @@ const GroupFixtures = (data: Fixture[]) => {
     const groupedData: GroupedFixtures = {};
 
     data.forEach((fixture) => {
-      const { game_date, category, groupname } = fixture;
+      const { game_date, category, groupname, matchday } = fixture;
       const date = game_date.split(" ")[0];
 
       if (!groupedData[date]) {
@@ -322,11 +322,13 @@ const GroupFixtures = (data: Fixture[]) => {
         groupedData[date][category] = {};
       }
 
-      if (!groupedData[date][category][groupname]) {
-        groupedData[date][category][groupname] = [];
+      const round = groupname === "First Group" ? matchday : groupname;
+
+      if (!groupedData[date][category][round]) {
+        groupedData[date][category][round] = [];
       }
 
-      groupedData[date][category][groupname].push(fixture);
+      groupedData[date][category][round].push(fixture);
     });
 
     return groupedData;
