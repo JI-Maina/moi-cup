@@ -22,7 +22,7 @@ const dates = ["2025-11-11", "2025-11-12", "2025-11-13"];
 export const FixturesWrapper: FC<{ data: Fixture[] }> = ({ data }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const [selectedDate, setSelectedDate] = useState(dates[1]);
+  const [selectedDate, setSelectedDate] = useState(dates[2]);
   const [category, setCategory] = useState("U7");
 
   const router = useRouter();

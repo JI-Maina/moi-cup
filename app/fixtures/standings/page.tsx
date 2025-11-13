@@ -50,7 +50,9 @@ const StandingsPage = () => {
 
   // Find current category data
   const currentCategory = data?.categories?.[0];
-  const groups = currentCategory?.groups || [];
+  const groups =
+    currentCategory?.groups.filter((grp) => grp.groupname !== "First Group") ||
+    [];
 
   return (
     <main className="min-h-screen bg-[#0B1E4A]/95 pitch-lines pt-24">
